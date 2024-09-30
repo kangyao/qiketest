@@ -1,0 +1,21 @@
+def read_json_file(json_file_path):
+    try:
+        # 读取 UTF-16LE 编码的文件
+        with open(json_file_path, 'r') as file:
+            contnet = file.read()
+            if contnet.startswith(b'\xff\xfe'):
+                contnet = contnet[2:]
+            contnet = contnet.decode('utf-161e')
+            print("content   ",contnet)
+            return json.loads(contnet)  # 尝试解析 JSON
+    except FileNotFoundError:
+        print("文件 {} 未找到。".format(json_file_path))
+        exit(1)
+    except json.JSONDecodeError:
+        print("文件内容不是有效的 JSON 格式。")
+        exit(1)
+    except Exception as e:
+        print("发生错误:", e)
+        exit(1)
+
+read_json_file("Results.json")
