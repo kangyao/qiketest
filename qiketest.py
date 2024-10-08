@@ -43,7 +43,6 @@ def parse_game_rt(data):
 
     # Convert the dictionary back to a list for the final output
     for case_name, info in case_dict.items():
-        print(case_name)
         details.append({
             'case_name': case_name,
             'statuscolor': info['statuscolor'],
