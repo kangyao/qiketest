@@ -2,7 +2,7 @@ import re
 
 report = """
 **用例执行详情**
-<font color=black>1_添加道具：</font> <font color='red'>FAILURE</font>
+<font color=black>1_添加道具：</font> <font color="red">FAILURE</font>
 -判断是否在1_添加道具：<font color="warning">FAIL, 在时间内定位页面未出现，可能卡死或者其他异常情况导致 </font>
 <font color=black>2_打开背包：</font><font color="green">SUCCESS</font>
 -判断是否在2_打开背包：<font color="warning">FAIL, 在时间内定位页面未出现，可能卡死或者其他异常情况导致 </font>
@@ -24,7 +24,7 @@ report = """
 def parse_game_rt(data):
     results = {}
     # 提取用例执行详情
-    case_details = re.findall(r"<font color=black>(.*?)：</font>\s*<font color='(.*?)'>(.*?)</font>", data)
+    case_details = re.findall(r"<font color=black>(.*?)：</font>\s*<font color=\"(.*?)\">(.*?)</font>", data)
     details = []
 
     # Create a dictionary to hold case names and their results
